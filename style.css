@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+:root {
+  box-sizing: border-box;
+}
+* {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  background-color: #c3c7d7;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  text-align: center;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 5vw, 4rem);
+  color: blueviolet;
+  margin: 1em;
+}
+
+.box {
+  --distance: 200%;
+  background-color: burlywood;
+  color: cadetblue;
+  border: 4px dotted cadetblue;
+  width: 80%;
+  max-width: 500px;
+  height: 30vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+
+  transform: translateX( var(--distance) );
+  transition: all 0.5s ease;
+}
+
+.box:nth-of-type(even) {
+  transform: translateX( calc(var(--distance)*-1) );
+}
+
+/* Make the scroll animation work on large screens */
+@media (min-width: 50em) {
+  .box {
+    --distance: 400%;
+  }
+}
+
+/* Will be controled by JavaScript */
+.box.show {
+  transform: translateX(0px);
+}
